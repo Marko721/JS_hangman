@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hangman game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hangman">
+        <svg width="200" height="300" class="figure-container">
+          <line x1="0" y1="200" x2="40" y2="200" />
+          <line x1="20" y1="30" x2="20" y2="200" />
+          <line x1="20" y1="30" x2="100" y2="30" />
+          <line x1="100" y1="30" x2="100" y2="80" />
+          <circle cx="100" cy="90" r="10" fill="transparent" />
+          <line x1="100" y1="100" x2="100" y2="150" />
+          <line x1="100" y1="100" x2="90" y2="120" />
+          <line x1="100" y1="100" x2="110" y2="120" />
+          <line x1="100" y1="150" x2="90" y2="170" />
+          <line x1="100" y1="150" x2="110" y2="170" />
+          Sorry, your browser does not support inline SVG.
+        </svg>
+      </div>
+      <button class="generateButton" onClick="generateWord()">
+        Generate Word
+      </button>
+      <div class="text">
+        <h3 class="guess"></h3>
+      </div>
+
+
+    <script src="app.js"></script>
+  </body>
+</html>
