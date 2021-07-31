@@ -37,14 +37,14 @@ const generateWord = () => {
   // uzimanje svakog slova iz charWordArray i menjati za _ umesto " "
   for (const char of charWordArray) {
     if (char === " ") {
-      underscoreLetter += "  ";
+      underscoreLetter.push("  ");
     } else {
-      underscoreLetter += "_";
+      underscoreLetter.push("_");
     }
   }
 
   // prikazi izmenjenu rec
-  wordString.innerHTML = underscoreLetter;
+  wordString.innerHTML = underscoreLetter.join("");
 };
 
 const checkLetters = (guessedLetters, charWordArray) => {
@@ -52,8 +52,9 @@ const checkLetters = (guessedLetters, charWordArray) => {
     // for loop nesto ne valja ovde
     if (charWordArray.includes(letter)) {
       const index = charWordArray.indexOf(letter);
+      console.log(index);
       underscoreLetter[index] = letter;
-      wordString.innerHTML = underscoreLetter;
+      wordString.innerHTML = underscoreLetter.join("");
     }
   }
 };
