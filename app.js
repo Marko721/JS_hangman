@@ -14,7 +14,7 @@ let guessedLetters = [];
 
 // Event Listeners
 document.addEventListener("keypress", (e) => {
-  guessedLetters.push(e.key);
+  guessedLetters.push(e.key.toUpperCase());
   console.log(guessedLetters);
 
   // pozivanje funckije koja proverava
@@ -25,7 +25,7 @@ document.addEventListener("keypress", (e) => {
 const generateWord = () => {
   // uzimanje random reci iz word niza
   const randomNumber = Math.floor(Math.random() * words.length);
-  const guessWord = words[randomNumber];
+  const guessWord = words[randomNumber].toUpperCase();
 
   // resetovanje nizova kada se dugme ponovo klikne
   charWordArray = [];
