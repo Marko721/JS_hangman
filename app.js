@@ -18,7 +18,7 @@ document.addEventListener("keypress", (e) => {
   console.log(guessedLetters);
 
   // pozivanje funckije koja proverava
-  checkLetters(guessedLetters, charWordArray);
+  checkAndReplace(guessedLetters, charWordArray);
 });
 
 // Functions
@@ -47,14 +47,21 @@ const generateWord = () => {
   wordString.innerHTML = underscoreLetter.join("");
 };
 
-const checkLetters = (guessedLetters, charWordArray) => {
+const checkAndReplace = (guessedLetters, charWordArray) => {
   for (letter of guessedLetters) {
-    // for loop nesto ne valja ovde
-    if (charWordArray.includes(letter)) {
-      const index = charWordArray.indexOf(letter);
-      console.log(index);
-      underscoreLetter[index] = letter;
-      wordString.innerHTML = underscoreLetter.join("");
-    }
+    // if (charWordArray.includes(letter)) {
+    //   const index = charWordArray.indexOf(letter);
+    //   underscoreLetter[index] = letter;
+    //   wordString.innerHTML = underscoreLetter.join("");
+    // }
+
+    // tuning.
+    charWordArray.forEach((element) => {
+      if (element === letter) {
+        let index = charWordArray.indexOf(letter);
+        underscoreLetter[index] = letter;
+        wordString.innerHTML = underscoreLetter.join("");
+      }
+    });
   }
 };
