@@ -15,7 +15,7 @@ let guessedLetters = [];
 // Event Listeners
 document.addEventListener("keypress", (e) => {
   guessedLetters.push(e.key.toUpperCase());
-  console.log(guessedLetters);
+  // console.log(guessedLetters);
 
   // pozivanje funckije koja proverava
   checkAndReplace(guessedLetters, charWordArray);
@@ -56,12 +56,22 @@ const checkAndReplace = (guessedLetters, charWordArray) => {
     // }
 
     // tuning.
-    charWordArray.forEach((element) => {
-      if (element === letter) {
-        let index = charWordArray.indexOf(letter);
-        underscoreLetter[index] = letter;
+    // charWordArray.forEach((element) => {
+    //   if (element === letter) {
+    //     let index = charWordArray.indexOf(letter);
+    //     console.log(index);
+    //     underscoreLetter[index] = letter;
+    //     wordString.innerHTML = underscoreLetter.join("");
+    //   }
+    // });
+
+    for (let i = 0; i <= charWordArray.length; i++) {
+      if (charWordArray[i] == letter) {
+        underscoreLetter[i] = letter;
         wordString.innerHTML = underscoreLetter.join("");
+      } else {
+        console.log(guessedLetters);
       }
-    });
+    }
   }
 };
