@@ -47,3 +47,18 @@ body {
 .wrong-letters {
   width: 100px;
 }
+
+.win-los-modal {
+  display: none;
+}
+
+.show-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  height: 80vh;
+  width: 80vw;
+  background: rgb(11, 135, 149);
+}

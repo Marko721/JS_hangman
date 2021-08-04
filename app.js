@@ -1,17 +1,19 @@
 const wordString = document.querySelector(".guess");
 const wrongLetters = document.querySelector(".wrong-letters");
+const winLosModal = document.querySelector(".win-los-modal");
 
 const words = [
   "Tuning",
-  // "Motivational quotes",
-  // "Working hard",
-  // "The Lord of the rings",
-  // "Healthy habits",
+  "Motivational quotes",
+  "Working hard",
+  "The Lord of the rings",
+  "Healthy habits",
 ];
 
 let charWordArray = [];
 let underscoreLetter = [];
 let guessedLetters = [];
+let word = "";
 
 // Event Listeners
 document.addEventListener("keypress", (e) => {
@@ -27,6 +29,7 @@ const generateWord = () => {
   // uzimanje random reci iz word niza
   const randomNumber = Math.floor(Math.random() * words.length);
   const guessWord = words[randomNumber].toUpperCase();
+  word = guessWord;
 
   // resetovanje nizova kada se dugme ponovo klikne
   charWordArray = [];
@@ -40,7 +43,7 @@ const generateWord = () => {
   // uzimanje svakog slova iz charWordArray i menjati za _ umesto " "
   for (const char of charWordArray) {
     if (char === " ") {
-      underscoreLetter.push("  ");
+      underscoreLetter.push(" ");
     } else {
       underscoreLetter.push("_");
     }
@@ -56,7 +59,7 @@ const checkAndReplace = (letter, charWordArray) => {
       if (charWordArray[i] == letter) {
         underscoreLetter[i] = letter;
         wordString.innerHTML = underscoreLetter.join("");
-        checkWinner();
+        checkWinLos();
       }
     }
   } else {
@@ -64,9 +67,17 @@ const checkAndReplace = (letter, charWordArray) => {
       guessedLetters.push(letter);
       wrongLetters.innerHTML = `<h3>${guessedLetters}</h3>`;
     } else if (guessedLetters.length >= 6) {
-      console.log("game over");
+      checkWinLos();
     }
   }
 };
 
-const checkWinner = () => {};
+const checkWinLos = () => {
+  // kako odrediti da li je win ili loose
+  if (word == underscoreLetter.join("")) {
+    winLosModal.classList.toggle("show-modal");
+    winLosModal.innerHTML = `<h2>You won</h2>`;
+  } else if (guessedLetters.length >= 6) {
+    console.log("you lost");
+  }
+};
