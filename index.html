@@ -11,7 +11,11 @@
     <title>Hangman game</title>
   </head>
   <body>
+    
     <div class="container">
+      <button class="generateButton" onClick="generateWord()">
+        Generate Word
+      </button>
       <div class="hangman">
         <div class="svg">
         <svg width="200" height="300" class="figure-container">
@@ -33,9 +37,7 @@
       </div>
 
       </div>
-      <button class="generateButton" onClick="generateWord()">
-        Generate Word
-      </button>
+      
       <div class="text">
         <h3 class="guess"></h3>
       </div>

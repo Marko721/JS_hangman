@@ -31,6 +31,8 @@ const generateWord = () => {
   // resetovanje nizova kada se dugme ponovo klikne
   charWordArray = [];
   underscoreLetter = [];
+  guessedLetters = [];
+  wrongLetters.innerHTML = "";
 
   // pretvaranje random reci u niz slova
   [...charWordArray] = guessWord;
@@ -57,7 +59,7 @@ const checkAndReplace = (letter, charWordArray) => {
       }
     }
   } else {
-    if (guessedLetters.length < 6) {
+    if (guessedLetters.length < 6 && !guessedLetters.includes(letter)) {
       guessedLetters.push(letter);
       wrongLetters.innerHTML = `<h3>${guessedLetters}</h3>`;
     } else {
