@@ -56,14 +56,17 @@ const checkAndReplace = (letter, charWordArray) => {
       if (charWordArray[i] == letter) {
         underscoreLetter[i] = letter;
         wordString.innerHTML = underscoreLetter.join("");
+        checkWinner();
       }
     }
   } else {
     if (guessedLetters.length < 6 && !guessedLetters.includes(letter)) {
       guessedLetters.push(letter);
       wrongLetters.innerHTML = `<h3>${guessedLetters}</h3>`;
-    } else {
+    } else if (guessedLetters.length >= 6) {
       console.log("game over");
     }
   }
 };
+
+const checkWinner = () => {};
