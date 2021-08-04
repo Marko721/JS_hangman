@@ -37,3 +37,13 @@ body {
 .guess {
   letter-spacing: 3px;
 }
+
+.hangman {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrong-letters {
+  width: 100px;
+}

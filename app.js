@@ -1,4 +1,5 @@
 const wordString = document.querySelector(".guess");
+const wrongLetters = document.querySelector(".wrong-letters");
 
 const words = [
   "Tuning",
@@ -14,11 +15,11 @@ let guessedLetters = [];
 
 // Event Listeners
 document.addEventListener("keypress", (e) => {
-  guessedLetters.push(e.key.toUpperCase());
+  let letter = e.key.toUpperCase();
   // console.log(guessedLetters);
 
   // pozivanje funckije koja proverava
-  checkAndReplace(guessedLetters, charWordArray);
+  checkAndReplace(letter, charWordArray);
 });
 
 // Functions
@@ -47,31 +48,20 @@ const generateWord = () => {
   wordString.innerHTML = underscoreLetter.join("");
 };
 
-const checkAndReplace = (guessedLetters, charWordArray) => {
-  for (letter of guessedLetters) {
-    // if (charWordArray.includes(letter)) {
-    //   const index = charWordArray.indexOf(letter);
-    //   underscoreLetter[index] = letter;
-    //   wordString.innerHTML = underscoreLetter.join("");
-    // }
-
-    // tuning.
-    // charWordArray.forEach((element) => {
-    //   if (element === letter) {
-    //     let index = charWordArray.indexOf(letter);
-    //     console.log(index);
-    //     underscoreLetter[index] = letter;
-    //     wordString.innerHTML = underscoreLetter.join("");
-    //   }
-    // });
-
+const checkAndReplace = (letter, charWordArray) => {
+  if (charWordArray.includes(letter)) {
     for (let i = 0; i <= charWordArray.length; i++) {
       if (charWordArray[i] == letter) {
         underscoreLetter[i] = letter;
         wordString.innerHTML = underscoreLetter.join("");
-      } else {
-        console.log(guessedLetters);
       }
+    }
+  } else {
+    if (guessedLetters.length < 6) {
+      guessedLetters.push(letter);
+      wrongLetters.innerHTML = `<h3>${guessedLetters}</h3>`;
+    } else {
+      console.log("game over");
     }
   }
 };
