@@ -1,6 +1,7 @@
 const wordString = document.querySelector(".guess");
 const wrongLetters = document.querySelector(".wrong-letters");
 const winLosModal = document.querySelector(".win-los-modal");
+const winLosText = document.querySelector(".win-los-text");
 
 const words = [
   "Tuning",
@@ -36,6 +37,7 @@ const generateWord = () => {
   underscoreLetter = [];
   guessedLetters = [];
   wrongLetters.innerHTML = "";
+  winLosModal.classList.remove("show-modal");
 
   // pretvaranje random reci u niz slova
   [...charWordArray] = guessWord;
@@ -73,11 +75,11 @@ const checkAndReplace = (letter, charWordArray) => {
 };
 
 const checkWinLos = () => {
-  // kako odrediti da li je win ili loose
   if (word == underscoreLetter.join("")) {
-    winLosModal.classList.toggle("show-modal");
-    winLosModal.innerHTML = `<h2>You won</h2>`;
+    winLosModal.classList.add("show-modal");
+    winLosText.textContent = "You Won! :)";
   } else if (guessedLetters.length >= 6) {
-    console.log("you lost");
+    winLosModal.classList.add("show-modal");
+    winLosText.textContent = "You Lost! :(";
   }
 };
