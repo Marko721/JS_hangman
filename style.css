@@ -58,7 +58,7 @@ body {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  height: 80vh;
+  height: 40vh;
   width: 80vw;
   background: rgb(11, 135, 149);
 }

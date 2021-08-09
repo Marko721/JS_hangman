@@ -18,11 +18,13 @@ let word = "";
 
 // Event Listeners
 document.addEventListener("keypress", (e) => {
-  let letter = e.key.toUpperCase();
-  // console.log(guessedLetters);
+  if (e.key.match(/[a-z]/i)) {
+    let letter = e.key.toUpperCase();
+    // console.log(guessedLetters);
 
-  // pozivanje funckije koja proverava
-  checkAndReplace(letter, charWordArray);
+    // pozivanje funckije koja proverava
+    checkAndReplace(letter, charWordArray);
+  }
 });
 
 // Functions
