@@ -19,7 +19,7 @@ const cicaglisa = [
   `<line x1="100" y1="100" x2="90" y2="120" />`,
   `<line x1="100" y1="100" x2="110" y2="120" />`,
   `<line x1="100" y1="150" x2="90" y2="170" />`,
-  `<line x1="100" y1="150" x2="110" y2="170" />`,
+  // `<line x1="100" y1="150" x2="110" y2="170" />`,
 ];
 let charWordArray = [];
 let underscoreLetter = [];
