@@ -2,6 +2,7 @@ const wordString = document.querySelector(".guess");
 const wrongLetters = document.querySelector(".wrong-letters");
 const winLosModal = document.querySelector(".win-los-modal");
 const winLosText = document.querySelector(".win-los-text");
+const hangman = document.querySelector(".figure-container");
 
 const words = [
   "Tuning",
@@ -11,6 +12,15 @@ const words = [
   "Healthy habits",
 ];
 
+const cicaglisa = [
+  `<circle cx="100" cy="90" r="10" fill="transparent" />`,
+  `<line x1="100" y1="100" x2="100" y2="150" />`,
+  `<line x1="100" y1="100" x2="90" y2="120" />`,
+  `<line x1="100" y1="100" x2="90" y2="120" />`,
+  `<line x1="100" y1="100" x2="110" y2="120" />`,
+  `<line x1="100" y1="150" x2="90" y2="170" />`,
+  `<line x1="100" y1="150" x2="110" y2="170" />`,
+];
 let charWordArray = [];
 let underscoreLetter = [];
 let guessedLetters = [];
@@ -70,6 +80,7 @@ const checkAndReplace = (letter, charWordArray) => {
     if (guessedLetters.length < 6 && !guessedLetters.includes(letter)) {
       guessedLetters.push(letter);
       wrongLetters.innerHTML = `<h3>${guessedLetters}</h3>`;
+      updateHangman();
     } else if (guessedLetters.length >= 6) {
       checkWinLos();
     }
@@ -83,5 +94,11 @@ const checkWinLos = () => {
   } else if (guessedLetters.length >= 6) {
     winLosModal.classList.add("show-modal");
     winLosText.textContent = "You Lost! :(";
+  }
+};
+
+const updateHangman = () => {
+  for (let i = 0; i <= guessedLetters.length; i++) {
+    hangman.innerHTML += cicaglisa[i - 1];
   }
 };
