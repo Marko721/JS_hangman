@@ -44,12 +44,16 @@ const generateWord = () => {
   const guessWord = words[randomNumber].toUpperCase();
   word = guessWord;
 
-  // resetovanje nizova kada se dugme ponovo klikne
+  // resetovanje nizova kada se dugme play again ili generate klikne
   charWordArray = [];
   underscoreLetter = [];
   guessedLetters = [];
   wrongLetters.innerHTML = "";
   winLosModal.classList.remove("show-modal");
+  hangman.innerHTML = `<line x1="0" y1="200" x2="40" y2="200" />
+  <line x1="20" y1="30" x2="20" y2="200" />
+  <line x1="20" y1="30" x2="100" y2="30" />
+  <line x1="100" y1="30" x2="100" y2="80" />`;
 
   // pretvaranje random reci u niz slova
   [...charWordArray] = guessWord;
